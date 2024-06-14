@@ -1,0 +1,24 @@
+<div class="mat-elevation-z4" style="width: 30%; padding: 30px; margin: 50px auto; display: flex; justify-content: center;">
+    <form [formGroup]="formAlumno" (ngSubmit)="guardar()">
+      <div class="flex">
+          <mat-form-field>
+              <input matInput placeholder="Nombre" formControlName="nombre">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Apellido" formControlName="apellido">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento">
+          </mat-form-field>
+           <mat-form-field>
+            <input matInput placeholder="Genero" formControlName="genero">
+           </mat-form-field>
+      </div>
+      <div class="flex">
+          <button mat-raised-button color="primary" type="submit">Guardar</button>
+          <button mat-raised-button color="warn" (click)="volver()" style="margin-left: 8px;">Cancelar</button>
+      </div>
+     
+      
+      </form>
+  </div>

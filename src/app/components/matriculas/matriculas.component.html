@@ -1,0 +1,45 @@
+<mat-card style="width: 70%; margin: 50px auto;">
+    <mat-card-header>
+        <mat-card-title>Matriculas</mat-card-title>
+        <mat-card-subtitle>Lista de Matriculas 🌎</mat-card-subtitle>:
+    </mat-card-header>
+    <mat-card-content>
+        <button mat-flat-button color="primary" (click)="nuevo()">Nueva Matricula</button>
+        <button mat-flat-button color="primary" (click)="back()">Regresar</button>
+        <table mat-table [dataSource]="listaMatricula" class="mat-elevation-z3" style= "margin-top: 20px;">
+            <ng-container matColumnDef="idmatricula">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.idmatricula}} </td>
+            </ng-container>
+            <ng-container matColumnDef="idalumno">
+                <th mat-header-cell *matHeaderCellDef> Id Alumno </th>
+                <td mat-cell *matCellDef="let element"> {{element.idalumno}} </td>
+            </ng-container>
+            <ng-container matColumnDef="idgrado">
+                <th mat-header-cell *matHeaderCellDef> Id Grado </th>
+                <td mat-cell *matCellDef="let element"> {{element.idgrado}} </td>
+            </ng-container>
+            <ng-container matColumnDef="fechamatricula">
+                <th mat-header-cell *matHeaderCellDef> Fecha de Matricula </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechamatricula}} </td>
+            </ng-container>
+            <ng-container matColumnDef="seccion">
+                <th mat-header-cell *matHeaderCellDef> Seccion </th>
+                <td mat-cell *matCellDef="let element"> {{element.seccion}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Acciones">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="editar(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="eliminar(element)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

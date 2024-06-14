@@ -1,0 +1,37 @@
+<mat-card style="width: 70%; margin: 50px auto;">
+    <mat-card-header>
+        <mat-card-title>Grados</mat-card-title>
+        <mat-card-subtitle>Lista de Grados 🌎</mat-card-subtitle>:
+    </mat-card-header>
+    <mat-card-content>
+        <button mat-flat-button color="primary" (click)="nuevo()">Nuevo Grado</button>
+        <button mat-flat-button color="primary" (click)="back()">Regresar</button>
+        <table mat-table [dataSource]="listagrado" class="mat-elevation-z3" style= "margin-top: 20px;">
+            <ng-container matColumnDef="idgrado">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.idgrado}} </td>:
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+            <ng-container matColumnDef="idprofesor">
+                <th mat-header-cell *matHeaderCellDef> Idprofesor </th>
+                <td mat-cell *matCellDef="let element"> {{element.idprofesor}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Acciones">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="editar(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="eliminar(element)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>
